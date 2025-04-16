@@ -12,7 +12,6 @@ from langchain_gigachat.chat_models import GigaChat
 from dotenv import load_dotenv
 load_dotenv()
 api_key = os.getenv("GIGACHAT_API_KEY")
-print("api_key="+api_key)
 
 # Sample questions (edit to match your documents!)
 SAMPLE_QUESTIONS = [
