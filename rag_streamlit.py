@@ -80,7 +80,6 @@ def create_qa_chain(vector_store):
     giga = GigaChat(
         # Для авторизации запросов используйте ключ, полученный в проекте GigaChat API
         credentials=api_key,
-        #"ZDIwYWZmZGQtYjhjYi00NTdiLTg3NzAtMTA3N2FkMjljNDMyOjUzNWM1YjJhLTVjYzktNDlmNi05ZjA1LTIxOTMwNzhmZDJhNg==",
         verify_ssl_certs=False,
     )
     qa_chain = RetrievalQA.from_chain_type(llm=giga, retriever=retriever, return_source_documents=True)
@@ -130,10 +129,10 @@ st.markdown(
 
 st.title("🤖Заморозки в Ставропольском крае")
 # File path setup (edit your folder path here)
-DOCS_PATH = "C:/Users/Admin/Documents/rag_docs"
+DOCS_PATH = "resources"
 
 with st.spinner("Loading documents and building vector store..."):
-    docs = load_documents_from_directory("C:/Users/Admin/Documents/rag_docs")
+    docs = load_documents_from_directory(DOCS_PATH)
     vector_store = create_vector_store(docs)
     qa_chain = create_qa_chain(vector_store)
 
